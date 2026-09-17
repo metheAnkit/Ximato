@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme {
+  /* Map the next/font CSS variables onto Tailwind's font utilities. */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+  --font-display: var(--font-playfair), ui-serif, Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #fffaf5;
+  color: #0f172a;
+}
+
+/* Hide horizontal scrollbar on the category pill row while keeping scroll. */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+::selection {
+  background-color: #fed7aa;
+  color: #7c2d12;
+}
+
+/* Shared form control used across checkout and admin forms. */
+.input {
+  @apply w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-orange-400 focus:ring-2 focus:ring-orange-100;
+}

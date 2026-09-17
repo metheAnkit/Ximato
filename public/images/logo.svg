@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 340" fill="none">
+  <defs>
+    <!-- Vibrant warm pin gradient (amber-orange at top to deep crimson at bottom) -->
+    <linearGradient id="ximatoPinGradFull" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FF9E1B" />
+      <stop offset="25%" stop-color="#F86E1D" />
+      <stop offset="70%" stop-color="#E22828" />
+      <stop offset="100%" stop-color="#B81422" />
+    </linearGradient>
+    
+    <!-- Leaves gradient -->
+    <linearGradient id="ximatoLeafGradFull" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#3B8E3B" />
+      <stop offset="100%" stop-color="#66BB6A" />
+    </linearGradient>
+
+    <!-- Specular highlight -->
+    <linearGradient id="ximatoHighlightFull" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.35" />
+      <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <!-- GROUP: Top Leaves -->
+  <g id="leaves" transform="translate(40, 0)">
+    <!-- Left leaf -->
+    <path d="M 100 70 C 85 58 78 52 70 58 C 76 68 88 74 100 70 Z" fill="url(#ximatoLeafGradFull)" />
+    <!-- Center top leaf -->
+    <path d="M 118 68 C 122 50 134 40 142 34 C 136 50 128 62 118 68 Z" fill="url(#ximatoLeafGradFull)" />
+    <!-- Center left leaf -->
+    <path d="M 112 69 C 104 48 94 42 88 45 C 94 58 104 66 112 69 Z" fill="url(#ximatoLeafGradFull)" />
+    <!-- Right leaf -->
+    <path d="M 126 70 C 138 56 148 54 154 60 C 146 68 136 72 126 70 Z" fill="url(#ximatoLeafGradFull)" />
+  </g>
+
+  <!-- GROUP: Pin / Strawberry Base -->
+  <g id="pin-body" transform="translate(40, 0)">
+    <!-- Main Location Pin Body -->
+    <path d="M 120 62 C 160 62 190 92 190 132 C 190 168 138 214 120 228 C 102 214 50 168 50 132 C 50 92 80 62 120 62 Z"
+          fill="url(#ximatoPinGradFull)" />
+    
+    <!-- Specular highlight curve -->
+    <path d="M 120 66 C 154 66 182 92 184 126 C 172 88 142 72 120 72 C 98 72 68 88 56 126 C 58 92 86 66 120 66 Z"
+          fill="url(#ximatoHighlightFull)" />
+  </g>
+
+  <!-- GROUP: White Silhouette - Delivery Scooter Courier -->
+  <g id="courier-silhouette" transform="translate(40, 0)" fill="#FFFFFF" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Speed motion lines behind the box -->
+    <line x1="38" y1="118" x2="66" y2="118" stroke-width="4.5" />
+    <line x1="28" y1="130" x2="68" y2="130" stroke-width="4.5" />
+    <line x1="36" y1="142" x2="62" y2="142" stroke-width="4.5" />
+
+    <!-- Delivery Box -->
+    <rect x="72" y="110" width="22" height="26" rx="4" fill="#FFFFFF" stroke="none" />
+
+    <!-- Courier Head with Cap -->
+    <circle cx="122" cy="100" r="8.5" fill="#FFFFFF" stroke="none" />
+    <path d="M 122 96 Q 132 96 136 99 L 128 101 Z" fill="#FFFFFF" stroke="none" />
+
+    <!-- Courier Body & Arms reaching forward -->
+    <path d="M 112 110 C 118 109 126 112 128 122 L 120 144 L 108 144"
+          fill="none" stroke-width="6.5" />
+    <path d="M 122 115 L 138 122 L 140 132"
+          fill="none" stroke-width="5" />
+
+    <!-- Scooter Front Shield / Handlebar column -->
+    <path d="M 142 120 L 136 135 L 146 156 L 158 156"
+          fill="none" stroke-width="5.5" />
+
+    <!-- Scooter Footboard & Under-Seat Chassis -->
+    <path d="M 94 136 L 115 136 L 122 153 L 146 153"
+          fill="none" stroke-width="5.5" />
+
+    <!-- Back Wheel -->
+    <circle cx="94" cy="162" r="11" fill="none" stroke-width="5.5" />
+    <!-- Front Wheel -->
+    <circle cx="154" cy="162" r="11" fill="none" stroke-width="5.5" />
+    
+    <!-- Mudguards -->
+    <path d="M 83 158 C 84 148 102 148 105 158" fill="none" stroke-width="4" />
+    <path d="M 143 158 C 144 148 162 148 165 158" fill="none" stroke-width="4" />
+  </g>
+
+  <!-- Wordmark "XIMATO" in bold rounded typography -->
+  <text x="160" y="300"
+        text-anchor="middle"
+        fill="#A61C24"
+        font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+        font-weight="900"
+        font-size="52"
+        letter-spacing="1">XIMATO</text>
+</svg>
