@@ -174,3 +174,7 @@ npm run build
 - MongoDB must be running before using database-backed pages or API routes.
 - The health endpoint returns `{ "ok": true }` only when MongoDB is reachable.
 - The current application does not include authentication or authorization for the admin routes. Add authentication before exposing the admin area publicly.
+
+## 📄 License
+
+Copyright © 2026 Ximato. Fresh food, delivered fast. All rights reserved.
