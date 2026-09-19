@@ -1,11 +1,16 @@
 import { MongoClient, type Collection, type Db } from "mongodb";
 
-const uri = process.env.MONGODB_URI ?? "mongodb://localhost:27017/";
+const uri = process.env.MONGODB_URI;
 const databaseName = process.env.MONGODB_DB ?? "Ximato";
+
+if (!uri) {
+	throw new Error("MONGODB_URI is required. Configure your MongoDB Atlas connection string in the deployment environment.");
+}
 
 type MongoGlobals = typeof globalThis & {
 	__ximatoMongoClient?: MongoClient;
 	__ximatoMongoDatabase?: Db;
+	__ximatoMongoConnectPromise?: Promise<MongoClient>;
 };
 
 const globals = globalThis as MongoGlobals;
@@ -76,7 +81,8 @@ export const orders: Collection<OrderDocument> = database.collection("orders");
 export const counters = database.collection<{ _id: string; value: number }>("counters");
 
 export async function connectDatabase() {
-	await client.connect();
+	globals.__ximatoMongoConnectPromise ??= client.connect();
+	await globals.__ximatoMongoConnectPromise;
 	return database;
 }
 

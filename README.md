@@ -29,13 +29,7 @@ Ximato is a full-stack food ordering application built with Next.js, React, Type
 
 - Node.js 20 or newer
 - npm
-- MongoDB running locally or a reachable MongoDB deployment
-
-The default local MongoDB connection is:
-
-```text
-mongodb://localhost:27017/
-```
+- A MongoDB Atlas cluster accessible from your deployment environment
 
 ## Installation
 
@@ -43,14 +37,28 @@ mongodb://localhost:27017/
 npm install
 ```
 
-Create `.env.local` in the project root:
+Create `.env.local` in the project root for local development, or configure the same variables in Vercel:
 
 ```env
-MONGODB_URI=mongodb://localhost:27017/
+MONGODB_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/?appName=Ximato
 MONGODB_DB=Ximato
 ```
 
-`MONGODB_URI` and `MONGODB_DB` default to these values when omitted, but keeping them in `.env.local` makes the configuration explicit.
+Never commit `.env.local` or place a real password in the repository.
+
+### Vercel Deployment
+
+In Vercel, open **Project Settings → Environment Variables** and add `MONGODB_URI` and `MONGODB_DB` for the Production environment. Use the MongoDB Atlas connection string, not `mongodb://localhost:27017/`; `localhost` on Vercel refers to the Vercel build/runtime machine.
+
+In MongoDB Atlas, create a database user with access to the `Ximato` database and allow connections from Vercel in **Network Access**. For a quick deployment test, Atlas can allow `0.0.0.0/0`; restrict this later with a suitable production network policy.
+
+After saving the variables, redeploy the project. Test:
+
+```text
+https://your-project.vercel.app/api/health
+```
+
+It should return `{ "ok": true }`. A server error on `/` or `/api/health` usually means the Atlas URI is missing, invalid, or blocked by Atlas Network Access.
 
 ## Seed the Database
 
@@ -171,7 +179,7 @@ npm run build
 
 ## Notes
 
-- MongoDB must be running before using database-backed pages or API routes.
+- MongoDB Atlas must be reachable before using database-backed pages or API routes.
 - The health endpoint returns `{ "ok": true }` only when MongoDB is reachable.
 - The current application does not include authentication or authorization for the admin routes. Add authentication before exposing the admin area publicly.
 
